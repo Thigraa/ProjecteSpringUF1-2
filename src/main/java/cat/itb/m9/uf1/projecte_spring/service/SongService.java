@@ -13,10 +13,10 @@ import java.util.List;
 @Service
 public class SongService {
 
-    private List<Song> repository = new ArrayList<>();
+    public List<Song> repository = new ArrayList<>();
 
     @Autowired
-    private RepositoriSongs repositoriSongs;
+    public RepositoriSongs repositoriSongs;
 
 
 

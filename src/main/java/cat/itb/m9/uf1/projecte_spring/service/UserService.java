@@ -14,9 +14,9 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private List<MyUser> repository = new ArrayList<>();
+    public List<MyUser> repository = new ArrayList<>();
     @Autowired
-    private RepositoriUsuaris repositoriUsuaris;
+    public RepositoriUsuaris repositoriUsuaris;
 
     public void add(MyUser u){
         u.setPassword(passwordEncoder(u.getPassword()));
