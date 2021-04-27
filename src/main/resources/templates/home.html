@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+<table>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Artist</th>
+    <th>Album</th>
+    <form action="#"  th:action="@{add}"  method="post">
+        <input  type="submit"  value="Add song"/>
+    </form>
+</tr></br>
+</thead>
+<tbody>
+<tr th:each="Song : ${songslist}">
+    <br>
+    <td th:text="${Song.name}">name</td>
+    <td th:text="${Song.artist}">artist</td>
+    <td th:text="${Song.album}">album</td>
+    <td>
+    <form action="#"  th:action="@{update/{name}(name = ${Song.name})}" th:object="${Song}"  method="post">
+        <input type="submit" value="Update"/>
+    </form>
+    </td>
+    <td>
+    <form action="#"  th:action="@{delete/{name}(name = ${Song.name})}" th:object="${Song}"  method="post">
+        <input  type="submit"  value="Remove"/>
+    </form>
+    </td>
+
+
+
+    <br/>
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<form th:action="@{/login}" method="post">
+    <input type="submit" value="Login"/>
+</form>
+<form th:action="@{/register}" method="get">
+    <input type="submit" value="Register"/>
+</form>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Log out (Sign Out)"/>
+</form>
+</body>
+</html>

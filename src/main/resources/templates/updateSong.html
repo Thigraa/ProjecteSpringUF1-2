@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 th:text="UpdateSong">form</h1>
+<form action="#"  th:action="@{/updateSong}"  th:object="${Song}" method="POST" >
+  <div>
+    <label th:text="Name">Nom Animal</label>
+    <input type="text" id="username" th:field="*{name}"/>
+    <p th:each="error: ${#fields.errors('name')}"
+       th:text="${error}">Validation error</p>
+  </div>
+  <div>
+    <label th:text="artist">artist</label>
+    <input type="text"  th:field="*{artist}"/>
+    <p th:each="error : ${#fields.errors('artist')}"
+       th:text="${error}">Validation error</p>
+  </div>
+  <div>
+    <label th:text="album">album</label>
+    <input type="text"  th:field="*{album}"/>
+    <p th:each="error : ${#fields.errors('album')}"
+       th:text="${error}">Validation error</p>
+  </div>
+  <button type="submit" th:text="Submit">submit</button>
+</form>
+
+</br>
+</br>
+</br>
+</br>
+<form th:action="@{/logout}" method="post">
+  <input type="submit" value="Sign Out (Sign Out)"/>
+</form>
+</body>
+</html>
