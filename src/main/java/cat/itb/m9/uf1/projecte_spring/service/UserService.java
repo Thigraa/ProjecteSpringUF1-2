@@ -13,8 +13,6 @@ import java.util.List;
 
 @Service
 public class UserService {
-
-    public List<MyUser> repository = new ArrayList<>();
     @Autowired
     public RepositoriUsuaris repositoriUsuaris;
 
@@ -27,8 +25,7 @@ public class UserService {
         return repositoriUsuaris.findById(s).orElse(null);
     }
     public List<MyUser> list(){
-         repositoriUsuaris.findAll().forEach(usuari -> repository.add(usuari));
-         return repository;
+         return (List<MyUser>) repositoriUsuaris.findAll();
     }
     public void removeUser(String username){
        repositoriUsuaris.deleteById(username);

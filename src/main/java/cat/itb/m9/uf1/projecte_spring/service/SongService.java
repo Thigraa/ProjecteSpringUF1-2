@@ -13,8 +13,6 @@ import java.util.List;
 @Service
 public class SongService {
 
-    public List<Song> repository = new ArrayList<>();
-
     @Autowired
     public RepositoriSongs repositoriSongs;
 
@@ -26,8 +24,7 @@ public class SongService {
         repositoriSongs.save(s);
     }
     public List<Song> list(){
-        repositoriSongs.findAll().forEach(song -> repository.add(song));
-        return repository;
+       return (List<Song>) repositoriSongs.findAll();
     }
     public Song findById(String name){
         return repositoriSongs.findById(name).orElse(null);
